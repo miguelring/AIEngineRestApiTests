@@ -1,5 +1,8 @@
 plugins {
     id("java")
+    id("checkstyle")
+    id("com.github.spotbugs") version "6.0.14"
+    id("io.freefair.lombok") version ("6.6.1")
 }
 
 group = "com.apirest"
@@ -11,8 +14,52 @@ repositories {
 
 dependencies {
     testImplementation("org.testng:testng:7.8.0")
+
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
+    implementation("com.fasterxml.jackson.core:jackson-core:2.17.0")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.17.0")
+
+    implementation("com.aichatrestapi:AIChatRestApiModel:1.0.0")
 }
 
-tasks.test {
-    useJUnitPlatform()
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+tasks {
+    test {
+        useTestNG()
+    }
+
+    withType<Checkstyle>().configureEach {
+        configFile = file("config/checkstyle/checkstyle.xml")
+        configProperties = mapOf(
+            "checkstyle.suppressions.file" to file("config/checkstyle/suppressions.xml").absolutePath
+        )
+    }
+
+    named<com.github.spotbugs.snom.SpotBugsTask>("spotbugsMain") {
+        reports {
+            create("html") {
+                required.set(true)
+                outputLocation.set(
+                    layout.buildDirectory.file("reports/spotbugs/main.html")
+                )
+            }
+        }
+        effort.set(com.github.spotbugs.snom.Effort.MAX)
+        reportLevel.set(com.github.spotbugs.snom.Confidence.LOW)
+        excludeFilter.set(file("spotbugs-exclude.xml"))
+    }
+
+    named("build") {
+        dependsOn(
+            "spotbugsMain",
+        )
+    }
 }
