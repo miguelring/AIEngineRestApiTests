@@ -9,6 +9,7 @@
         <property name="max" value="120"/>
     </module>
     <module name="TreeWalker">
+        <module name="UnusedImports"/>
         <module name="ConstantName"/>
         <module name="EmptyBlock">
             <property name="option" value="text"/>

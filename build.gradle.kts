@@ -10,6 +10,14 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://personal-472156860409.d.codeartifact.eu-north-1.amazonaws.com/maven/AIChat/")
+        credentials {
+            username = "aws"
+            password = findProperty("awsCodeArtifactToken") as String?
+                ?: System.getenv("CODEARTIFACT_AUTH_TOKEN")
+        }
+    }
 }
 
 dependencies {
