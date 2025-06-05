@@ -22,6 +22,7 @@ public class AIChatPredictTest {
     public void predict_happy_path(List<PredictRequestMessage> messages) {
         PredictResponseBody responseBody = client.callPostPredict(new PredictRequestBody(messages));
         Assert.assertFalse(responseBody.getMessage().isEmpty());
-
+        Assert.assertFalse(responseBody.getMessage().contains("<think>"));
+        Assert.assertFalse(responseBody.getMessage().contains("</think>"));
     }
 }
