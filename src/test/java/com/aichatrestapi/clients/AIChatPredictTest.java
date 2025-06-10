@@ -1,6 +1,7 @@
 package com.aichatrestapi.clients;
 
 import com.aichatrestapi.clients.aichat.AIChatClient;
+import com.aichatrestapi.clients.ssm.ParameterStoreClient;
 import com.aichatrestapi.model.PredictRequestBody;
 import com.aichatrestapi.model.PredictRequestMessage;
 import com.aichatrestapi.model.PredictResponseBody;
@@ -15,7 +16,10 @@ public class AIChatPredictTest {
 
     @BeforeClass
     public void setup() {
-        this.client = new AIChatClient();
+        ParameterStoreClient parameterStoreClient = new ParameterStoreClient();
+        String token =
+                parameterStoreClient.getParameterValue("/aichat/backend/apiUrl");
+        this.client = new AIChatClient(token);
     }
 
     @Test(dataProviderClass = DataProviderClass.class, dataProvider = "messagesProvider")

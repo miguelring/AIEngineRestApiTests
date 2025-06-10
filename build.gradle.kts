@@ -30,7 +30,11 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.17.0")
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.17.0")
 
-    implementation("com.aichatrestapi:AIChatRestApiModel:1.0.0")
+    implementation("com.aichatrestapi:AIChatRestApiModel:1.0.1")
+
+    implementation(platform("software.amazon.awssdk:bom:2.25.8"))
+    implementation("software.amazon.awssdk:regions")
+    implementation("software.amazon.awssdk:ssm")
 }
 
 java {
@@ -62,7 +66,6 @@ tasks {
         }
         effort.set(com.github.spotbugs.snom.Effort.MAX)
         reportLevel.set(com.github.spotbugs.snom.Confidence.LOW)
-        excludeFilter.set(file("spotbugs-exclude.xml"))
     }
 
     named("build") {
