@@ -1,9 +1,9 @@
-package com.aichatrestapi.clients;
+package com.aienginerestapi.clients;
 
-import com.aichatrestapi.clients.aichat.AIChatClient;
-import com.aichatrestapi.clients.aichat.AIChatRequestException;
-import com.aichatrestapi.clients.ssm.ParameterStoreClient;
-import com.aichatrestapi.model.User;
+import com.aienginerestapi.clients.aichat.AIChatClient;
+import com.aienginerestapi.clients.aichat.AIChatRequestException;
+import com.aienginerestapi.clients.ssm.ParameterStoreClient;
+import com.aienginerestapi.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

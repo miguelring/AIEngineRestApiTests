@@ -1,9 +1,9 @@
-# AIChatRestApiTests
+# AIEngineRestApiTests
 =======
 
-# Welcome to AIChat Tests
+# Welcome to AIEngine Tests
 
-Here you will find integration tests for AIChat Backend
+Here you will find integration tests for AIEngine Backend
 
 Steps to build the project:
 1) export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \

@@ -1,7 +1,7 @@
-package com.aichatrestapi.clients;
+package com.aienginerestapi.clients;
 
-import com.aichatrestapi.model.PredictRequestMessage;
-import com.aichatrestapi.model.Roles;
+import com.aienginerestapi.model.PredictRequestMessage;
+import com.aienginerestapi.model.Roles;
 import org.testng.annotations.DataProvider;
 
 import java.util.List;

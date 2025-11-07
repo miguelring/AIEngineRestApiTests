@@ -1,4 +1,4 @@
-package com.aichatrestapi.clients.ssm;
+package com.aienginerestapi.clients.ssm;
 
 import software.amazon.awssdk.services.ssm.SsmClient;
 import software.amazon.awssdk.services.ssm.model.GetParameterRequest;

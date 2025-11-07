@@ -1,10 +1,10 @@
-package com.aichatrestapi.clients;
+package com.aienginerestapi.clients;
 
-import com.aichatrestapi.clients.aichat.AIChatClient;
-import com.aichatrestapi.clients.ssm.ParameterStoreClient;
-import com.aichatrestapi.model.PredictRequestBody;
-import com.aichatrestapi.model.PredictRequestMessage;
-import com.aichatrestapi.model.PredictResponseBody;
+import com.aienginerestapi.clients.aichat.AIChatClient;
+import com.aienginerestapi.clients.ssm.ParameterStoreClient;
+import com.aienginerestapi.model.PredictRequestBody;
+import com.aienginerestapi.model.PredictRequestMessage;
+import com.aienginerestapi.model.PredictResponseBody;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.Assert;
